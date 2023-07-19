@@ -40,10 +40,11 @@
         <input type="button" id="female" name="gender" value="" style="cursor: pointer">
         <label for="female">女性</label><br>
         你的身高:<br>
-        <input type="text" name=height value=""><br>
+        <input type="text" id="height" name="height" value=""><br>
         你的體重:<br>
-        <input type="text" name="weight" value="">
-        <input type="submit" value="計算" style="cursor: pointer" onclick="BMI()">
+        <input type="text" id="weight" name="weight" value="">
+        <input type="button" value="計算" style="cursor: pointer" onclick="BMI()">
+        <p id="bmiResult"></p>
 
     </div>
 </div>
@@ -69,9 +70,15 @@
         document.getElementById('jump-close').style.display ='none';
     }
     function BMI() {
-        var height =parseFloat(document.getElementById("heightinput").value);
-        var weight =parseFloat(document.getElementById("weightinput").value);
-        if ()
+        var height = parseFloat(document.getElementById("height").value);
+        var weight = parseFloat(document.getElementById("weight").value);
+        if (isNaN(height) || isNaN(weight)){
+            alert("請輸入有效的身高與體重 ");
+            return;
+        }
+        var bmi = weight / (height * height);
+        var bmiResult = document.getElementById("bmiResult");
+        bmiResult.textContent = "你的BMI值為 " + bmi.toFixed(2);
     }
 </script>
 </body>
