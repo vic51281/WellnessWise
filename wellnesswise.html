@@ -32,22 +32,27 @@
         position: fixed;
         z-index: 1;
         top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
+        left: 50%;
+        transform: translatex(-50%);
+        width: 50%;
+        height: 25%;
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: rgba(255, 255, 255, 0.8);
+        background-color: white;
     }
     .modal-content {
-        background-color: aliceblue;
+        background-color: white;
         padding: 20px;
         border: 1px solid #888;
         max-width: 400px;
         text-align: center;
     }
-    /*顏色待修改!!!!!!
+    .jumperrorstyle button {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+    }
     </style>
 </head>
 <body>
@@ -67,16 +72,16 @@
         <input type="button" value="計算" style="cursor: pointer" onclick="BMI()">
         <div id="jumperror" style="display: none;">
             <div class="jumperrorstyle">
-                <p>請輸入有效的身高與體重</p>
-                <button onclick="closeerrorjump()" >&times;</button>
+                <h3>請輸入有效的身高與體重</h3>
+                <button onclick="closeerrorjump()">&times;</button>
             </div>
-
         </div>
         <p id="bmiResult"></p>
         <h2 style="display: flex;justify-content: left;align-items: center" >體脂率估算</h2>
         年齡:
         <input type="number" id="age" name="age" value="">
         <input type="button" value="計算" style="cursor: pointer" onclick="bodyfat()">
+        <p id="bodyfatresult"></p>
 
     </div>
 </div>
@@ -107,6 +112,10 @@
     function closeerrorjump() {
         document.getElementById("jumperror").style.display = "none";
     }
+    function gendertype() {
+        return document.getElementById("gender").value;
+    }
+    var bmivalue;
     function BMI() {
         var height = parseFloat(document.getElementById("height").value);
         var weight = parseFloat(document.getElementById("weight").value);
@@ -118,12 +127,25 @@
         var bmi = weight / (height * height);
         var bmiResult = document.getElementById("bmiResult");
         bmiResult.textContent = "你的BMI值為 " + bmi.toFixed(2);
+        bmivalue = bmi
     }
     function bodyfat() {
         var age = parseFloat(document.getElementById("age").value);
         if (isNaN(age)){
-
+            openerrorjump();
+            return;
         }
+        var gender = gendertype();
+        if (gender === "male"){
+            var bodyfatpt = (1.39*bmivalue+0.16*age-10.34*1-9);
+            var bodyfatresult = document.getElementById("bodyfatresult");
+            bodyfatresult.textContent ="你的體脂率約為 "+ bodyfatpt.toFixed(2);
+        }
+        if (gender ==="female"){
+            var bodyfatpt =(1.39*bmivalue+0.16*age-9);
+            var bodyfatresult = document.gender("bodyfatresult");
+            bodyfatresult.textContent ="你的體脂率約為 "+ bodyfatpt.toFixed(2);
+        }//這裡我正在修改
     }
 </script>
 </body>
