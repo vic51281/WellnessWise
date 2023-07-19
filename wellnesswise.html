@@ -5,7 +5,7 @@
     <title>Wellnesswise</title>
     <style>
     .jump-space{
-        background-color: grey;
+        background-color: ghostwhite;
         position: fixed;
         top: 0;
         left: 0;
@@ -53,6 +53,46 @@
         bottom: 10px;
         right: 10px;
     }
+    #loseweight{
+        border: 2px solid #000;
+        background-color: transparent;
+        padding: 10px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    #loseweight:hover{
+        background-color: cornflowerblue;
+    }
+    #musclegain{
+        border: 2px solid #000;
+        background-color: transparent;
+        padding: 10px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    #musclegain:hover{
+        background-color: cornflowerblue;
+    }
+    #fastloss{
+        border: 2px solid #000;
+        background-color: transparent;
+        padding: 10px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    #fastloss:hover{
+        background-color: cornflowerblue;
+    }
+    #train{
+        border: 2px solid #000;
+        background-color: transparent;
+        padding: 10px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    #train:hover{
+        background-color: cornflowerblue;
+    }
     </style>
 </head>
 <body>
@@ -81,7 +121,24 @@
         年齡:
         <input type="number" id="age" name="age" value="">
         <input type="button" value="計算" style="cursor: pointer" onclick="bodyfat()">
-        <p id="bodyfatresult"></p>
+        <p id="bodyfatresult"></p><br>
+        <h2>目標!!</h2>
+        <div style="display: flex;align-items: center">
+            <button id="loseweight" style="margin-right: 10px"></button>
+            <h4>減肥</h4>
+        </div>
+        <div style="display: flex;align-items: center">
+            <button id="musclegain" style="margin-right: 10px"></button>
+            <h4>增肌</h4>
+        </div>
+        <div style="display: flex;align-items: center">
+            <button id="fastloss" style="margin-right: 10px"></button>
+            <h4>減脂</h4>
+        </div>
+        <div style="display: flex;align-items: center">
+            <button id="train" style="margin-right: 10px"></button>
+            <h4>功能性訓練</h4>
+        </div>
 
     </div>
 </div>
