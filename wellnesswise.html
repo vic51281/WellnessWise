@@ -17,16 +17,15 @@
         float: right;
         cursor: pointer;
     }
-    input[type="button"]:hover{
-        background-color: cornflowerblue;
-        color: cornflowerblue;
-    }
     input[type="text"]{
         margin-bottom: 15px;
     }
-    input[type="button"],input[type="text"]{
+    select[id="gender"],input[type="number"] {
         margin-bottom: 10px;
         vertical-align: middle;
+    }
+    #gender{
+        font-size: 15px;
     }
     </style>
 </head>
@@ -34,17 +33,21 @@
 <div id="jump-close">
     <div class="jump-space">
         <span class="close" onclick="closeModal()">&times;</span>
-        <h2 style="display: flex;justify-content: center;align-items: center">test</h2>
-        <input type="button" id="male" name="gender" value="" style="cursor: pointer">
-        <label for="male">男性</label>
-        <input type="button" id="female" name="gender" value="" style="cursor: pointer">
-        <label for="female">女性</label><br>
-        你的身高:<br>
-        <input type="text" id="height" name="height" value=""><br>
-        你的體重:<br>
-        <input type="text" id="weight" name="weight" value="">
+        <h2 style="display: flex;justify-content: left;align-items: center">BMI計算</h2>
+        <label for="gender">性別：</label>
+        <select name="gender" id="gender">
+            <option value="male">男性</option>
+            <option value="female">女性</option>
+        </select><br>
+        身高(cm):
+        <input type="number" id="height" name="height" value=""><br>
+        體重(kg):
+        <input type="number" id="weight" name="weight" value="">
         <input type="button" value="計算" style="cursor: pointer" onclick="BMI()">
         <p id="bmiResult"></p>
+        <h2 style="display: flex;justify-content: left;align-items: center" >體脂率估算</h2>
+        年齡:
+        <input type="number" id="age" name="age" value="">
 
     </div>
 </div>
@@ -76,6 +79,7 @@
             alert("請輸入有效的身高與體重 ");
             return;
         }
+        height=height/100;
         var bmi = weight / (height * height);
         var bmiResult = document.getElementById("bmiResult");
         bmiResult.textContent = "你的BMI值為 " + bmi.toFixed(2);
