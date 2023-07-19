@@ -27,6 +27,27 @@
     #gender{
         font-size: 15px;
     }
+    #jumperror {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+    .modal-content {
+        background-color: aliceblue;
+        padding: 20px;
+        border: 1px solid #888;
+        max-width: 400px;
+        text-align: center;
+    }
+    /*顏色待修改!!!!!!
     </style>
 </head>
 <body>
@@ -44,10 +65,18 @@
         體重(kg):
         <input type="number" id="weight" name="weight" value="">
         <input type="button" value="計算" style="cursor: pointer" onclick="BMI()">
+        <div id="jumperror" style="display: none;">
+            <div class="jumperrorstyle">
+                <p>請輸入有效的身高與體重</p>
+                <button onclick="closeerrorjump()" >&times;</button>
+            </div>
+
+        </div>
         <p id="bmiResult"></p>
         <h2 style="display: flex;justify-content: left;align-items: center" >體脂率估算</h2>
         年齡:
         <input type="number" id="age" name="age" value="">
+        <input type="button" value="計算" style="cursor: pointer" onclick="bodyfat()">
 
     </div>
 </div>
@@ -72,17 +101,29 @@
     function closeModal(){
         document.getElementById('jump-close').style.display ='none';
     }
+    function openerrorjump() {
+        document.getElementById("jumperror").style.display = "flex";
+    }
+    function closeerrorjump() {
+        document.getElementById("jumperror").style.display = "none";
+    }
     function BMI() {
         var height = parseFloat(document.getElementById("height").value);
         var weight = parseFloat(document.getElementById("weight").value);
         if (isNaN(height) || isNaN(weight)){
-            alert("請輸入有效的身高與體重 ");
+            openerrorjump();
             return;
         }
         height=height/100;
         var bmi = weight / (height * height);
         var bmiResult = document.getElementById("bmiResult");
         bmiResult.textContent = "你的BMI值為 " + bmi.toFixed(2);
+    }
+    function bodyfat() {
+        var age = parseFloat(document.getElementById("age").value);
+        if (isNaN(age)){
+
+        }
     }
 </script>
 </body>
