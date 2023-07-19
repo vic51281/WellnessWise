@@ -1,1 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>您的健康與健身指南</title>
+</head>
+<body>
+<h1>請輸入您的資訊：</h1>
+<form id="userForm">
+    <label for="gender">性別：</label>
+    <select name="gender" id="gender">
+        <option value="male">男性</option>
+        <option value="female">女性</option>
+    </select><br>
 
+    <label for="height">身高（cm）：</label>
+    <input type="number" name="height" id="height"><br>
+
+    <label for="weight">體重（kg）：</label>
+    <input type="number" name="weight" id="weight"><br>
+
+    <label for="bodyFat">體脂（%）：</label>
+    <input type="number" name="bodyFat" id="bodyFat"><br>
+
+    <input type="submit" value="提交">
+</form>
+
+<div id="result">
+    <!-- ???????????????
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
