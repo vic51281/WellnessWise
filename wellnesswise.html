@@ -43,7 +43,7 @@
         <input type="text" name=height value=""><br>
         你的體重:<br>
         <input type="text" name="weight" value="">
-        <input type="submit" value="計算" style="cursor: pointer">
+        <input type="submit" value="計算" style="cursor: pointer" onclick="BMI()">
 
     </div>
 </div>
@@ -67,6 +67,11 @@
 <script>
     function closeModal(){
         document.getElementById('jump-close').style.display ='none';
+    }
+    function BMI() {
+        var height =parseFloat(document.getElementById("heightinput").value);
+        var weight =parseFloat(document.getElementById("weightinput").value);
+        if ()
     }
 </script>
 </body>
