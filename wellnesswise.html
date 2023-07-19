@@ -72,7 +72,7 @@
         <input type="button" value="計算" style="cursor: pointer" onclick="BMI()">
         <div id="jumperror" style="display: none;">
             <div class="jumperrorstyle">
-                <h3>請輸入有效的身高與體重</h3>
+                <h3>請輸入正確數值</h3>
                 <button onclick="closeerrorjump()">&times;</button>
             </div>
         </div>
@@ -131,7 +131,7 @@
     }
     function bodyfat() {
         var age = parseFloat(document.getElementById("age").value);
-        if (isNaN(age)){
+        if (isNaN(age) || isNaN(bmivalue)){
             openerrorjump();
             return;
         }
@@ -143,9 +143,9 @@
         }
         if (gender ==="female"){
             var bodyfatpt =(1.39*bmivalue+0.16*age-9);
-            var bodyfatresult = document.gender("bodyfatresult");
+            var bodyfatresult = document.getElementById("bodyfatresult");
             bodyfatresult.textContent ="你的體脂率約為 "+ bodyfatpt.toFixed(2);
-        }//這裡我正在修改
+        }
     }
 </script>
 </body>
